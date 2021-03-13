@@ -72,7 +72,9 @@ fun HomeScreen() {
                     val themes = listOf(
                         Pair(R.drawable.desert_chic, "Desert Chic"),
                         Pair(R.drawable.tiny_terrariums, "Tiny Terrariums"),
-                        Pair(R.drawable.jungle_vibes, "Jungle Vibes")
+                        Pair(R.drawable.jungle_vibes, "Jungle Vibes"),
+                        Pair(R.drawable.easy_care, "Easy care"),
+                        Pair(R.drawable.statements, "Statements")
                     )
                     themes.forEach {
                         item {
@@ -84,6 +86,22 @@ fun HomeScreen() {
             }
             item {
                 GardenTitle()
+            }
+
+            val gardens = listOf(
+                Pair(R.drawable.monstera, "Monstera"),
+                Pair(R.drawable.tiny_terrariums, "Tiny terrariums"),
+                Pair(R.drawable.peace_lily, "Peace lily"),
+                Pair(R.drawable.fiddle_leaf_tree, "Fiddle leaf tree"),
+                Pair(R.drawable.snake_plant, "Snake plant"),
+                Pair(R.drawable.pothos, "Pothos")
+
+            )
+            gardens.forEach {
+                item {
+                    ThemeItem(it.first, it.second)
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
             }
         }
     }

@@ -16,56 +16,55 @@
 package red.torch.composespeed.ui.home
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme.shapes
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import red.torch.composespeed.ui.theme.elevationCard
 
 @Composable
 fun GardenItem(
     @DrawableRes thumbnail: Int,
     title: String,
 ) {
-    Card(
-        shape = shapes.small,
-        elevation = elevationCard,
-        modifier = Modifier.size(136.dp)
-    ) {
-        Column {
-            Box(
-                modifier = Modifier.padding(8.dp)
-            ) {
-//                    DogListThumbnailImage(dog.thumbnailUrl)
-            }
+    Row {
+        Image(
+            painter = painterResource(id = thumbnail),
+            contentDescription = null,
+            contentScale = ContentScale.FillWidth,
+            modifier = Modifier.size(64.dp)
+        )
 
-            Column(
-                modifier = Modifier.padding(8.dp)
-            ) {
+        Spacer(modifier = Modifier.width(16.dp))
 
-                Text(
-                    title,
-                    style = typography.h2,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+        Box {
+            Text(
+                title,
+                style = typography.h2,
+                maxLines = 1,
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .paddingFromBaseline(top = 24.dp)
+            )
 
-                Spacer(
-                    Modifier
-                        .height(4.dp)
-                        .weight(1f)
-                )
-            }
+            Text(
+                "This is a description",
+                style = typography.body1,
+                maxLines = 1,
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .paddingFromBaseline(bottom = 24.dp)
+            )
         }
     }
 }
