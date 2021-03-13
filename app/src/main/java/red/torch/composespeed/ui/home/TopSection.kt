@@ -104,12 +104,7 @@ fun TopSection() {
         }
 
         // Chips
-        Row {
-            Text(
-                stringResource(id = R.string.home_transact),
-                style = typography.button,
-            )
-        }
+        TopChips()
 
         Image(
             painter = painterResource(id = R.drawable.ic_home_illos),

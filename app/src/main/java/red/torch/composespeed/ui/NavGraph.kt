@@ -30,7 +30,7 @@ import red.torch.composespeed.ui.welcome.WelcomeScreen
 fun NavGraph() {
     val navController = rememberNavController()
 
-    NavHost(navController, startDestination = "home") {
+    NavHost(navController, startDestination = "welcome") {
         composable(
             "welcome"
         ) {

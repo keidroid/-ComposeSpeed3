@@ -15,15 +15,18 @@
  */
 package red.torch.composespeed.ui.login
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
@@ -32,11 +35,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import red.torch.composespeed.R
 import red.torch.composespeed.ui.theme.MyTheme
+import red.torch.composespeed.ui.theme.iconMailOutline
+import red.torch.composespeed.ui.theme.iconPassword
 
 @Composable
 fun LoginScreen(
@@ -45,39 +52,58 @@ fun LoginScreen(
     Scaffold {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(horizontal = 16.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = colors.surface)
         ) {
-            Text(
-                stringResource(id = R.string.login_title),
-                style = typography.h1,
-                color = colors.onBackground,
-                modifier = Modifier
-                    .paddingFromBaseline(184.dp, 16.dp) // 16?
-            )
-
-            LoginTextField(placeholderStringId = R.string.login_mail)
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            LoginTextField(placeholderStringId = R.string.login_password)
-
-            LoginDescription()
-
-            Button(
-                onClick = { goHome?.invoke() },
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = colors.secondary,
-                    contentColor = colors.onSecondary
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .clip(RoundedCornerShape(percent = 50))
+            Box(
+                contentAlignment = Alignment.Center
             ) {
-                Text(
-                    stringResource(id = R.string.common_login),
-                    style = typography.button,
+                Image(
+                    painter = painterResource(id = R.drawable.ic_login_bg),
+                    contentDescription = null,
                 )
+
+                Text(
+                    text = stringResource(id = R.string.login_title),
+                    style = typography.h2,
+                    color = colors.onBackground,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.paddingFromBaseline(152.dp, 0.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            Column(
+                modifier = Modifier.padding(horizontal = 16.dp)
+            ) {
+                LoginTextField(
+                    icon = iconMailOutline,
+                    placeholderStringId = R.string.login_mail
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                LoginTextField(
+                    icon = iconPassword,
+                    placeholderStringId = R.string.login_password
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(
+                    onClick = { goHome?.invoke() },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .clip(RoundedCornerShape(percent = 50))
+                ) {
+                    Text(
+                        stringResource(id = R.string.common_login).toUpperCase(),
+                        style = typography.button,
+                    )
+                }
             }
         }
     }

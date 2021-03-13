@@ -16,13 +16,13 @@
 package red.torch.composespeed.ui.welcome
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -34,6 +34,7 @@ import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -50,11 +51,16 @@ fun WelcomeScreen(
 ) {
     Scaffold {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_welcome_bg),
+                contentDescription = null,
+            )
+
+            Image(
+                painter = painterResource(id = R.drawable.ic_logo),
                 contentDescription = null,
             )
 
@@ -64,6 +70,8 @@ fun WelcomeScreen(
                     .fillMaxSize()
                     .padding(horizontal = 16.dp)
             ) {
+                Spacer(Modifier.weight(1f))
+
                 Row {
                     Button(
                         onClick = { /* nothing to do */ },
@@ -72,9 +80,8 @@ fun WelcomeScreen(
                             contentColor = colors.onPrimary
                         ),
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
                             .height(48.dp)
+                            .weight(1f)
                             .clip(RoundedCornerShape(percent = 50))
                     ) {
                         Text(
@@ -97,13 +104,13 @@ fun WelcomeScreen(
                             disabledElevation = 0.dp,
                         ),
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
+                            .weight(1f)
                             .height(48.dp)
+                            .border(1.dp, colors.primary, RoundedCornerShape(percent = 50))
                             .clip(RoundedCornerShape(percent = 50))
                     ) {
                         Text(
-                            stringResource(id = R.string.common_login),
+                            stringResource(id = R.string.common_login).toUpperCase(),
                             style = typography.button,
                         )
                     }

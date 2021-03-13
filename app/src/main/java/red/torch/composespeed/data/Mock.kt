@@ -17,6 +17,14 @@ package red.torch.composespeed.data
 
 import red.torch.composespeed.R
 
+val chipMocks = listOf(
+    Pair("Week", true),
+    Pair("ETFs", false),
+    Pair("Stocks", false),
+    Pair("Funds", false),
+    Pair("Mock1", false),
+)
+
 val tradeInfoMocks = listOf(
     TradeInfo("\$7,918", -0.54f, "ALK", "Alaska Air Group, Inc.", R.drawable.ic_home_alk),
     TradeInfo("\$1,293", 4.18f, "BA", "Boeing Co.", R.drawable.ic_home_ba),
