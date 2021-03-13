@@ -21,8 +21,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import red.torch.composespeed.R
+import red.torch.composespeed.ui.login.LoginScreen
 import red.torch.composespeed.ui.theme.iconAccountCircle
 import red.torch.composespeed.ui.theme.iconFavoriteBorder
 import red.torch.composespeed.ui.theme.iconHome
@@ -42,12 +44,16 @@ fun NavGraph(
         composable(
             "welcome"
         ) {
-            WelcomeScreen(navController)
+            WelcomeScreen {
+                navController.navigate("login")
+            }
         }
         composable(
             "login",
         ) {
-//            DogDetailScreen(navController, 1, detailViewModel)
+            LoginScreen {
+                navController.navigate("home")
+            }
         }
         composable(
             "home",

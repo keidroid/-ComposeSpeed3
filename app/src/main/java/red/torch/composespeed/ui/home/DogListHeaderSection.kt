@@ -52,7 +52,7 @@ fun DogListHeaderSection(
         ) {
             Text(
                 stringResource(
-                    id = R.string.welcome_login,
+                    id = R.string.common_login,
                     searchTarget,
                     searchResultCount
                 ),
@@ -66,19 +66,19 @@ fun DogListHeaderSection(
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                stringResource(id = R.string.welcome_login),
+                stringResource(id = R.string.common_login),
                 style = typography.body1,
                 color = colors.primary
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                stringResource(id = R.string.welcome_login),
+                stringResource(id = R.string.common_login),
                 style = typography.body1,
                 color = colors.onBackground.copy(alpha = 0.25f)
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                stringResource(id = R.string.welcome_login),
+                stringResource(id = R.string.common_login),
                 style = typography.body1,
                 color = colors.onBackground.copy(alpha = 0.25f)
             )

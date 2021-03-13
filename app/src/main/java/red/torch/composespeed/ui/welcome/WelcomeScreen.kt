@@ -44,8 +44,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import red.torch.composespeed.R
 import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
 import red.torch.composespeed.ui.theme.MyTheme
@@ -54,7 +52,7 @@ import red.torch.composespeed.ui.theme.white
 
 @Composable
 fun WelcomeScreen(
-    navController: NavController?,
+    goLogin: (() -> Unit)?,
 ) {
     val bg = if (colors.isLight) {
         R.drawable.ic_light_welcome_bg
@@ -143,7 +141,7 @@ fun WelcomeScreen(
                         white
                     }
                     Button(
-                        onClick = { navController?.navigate("login") },
+                        onClick = { goLogin?.invoke() },
                         colors = ButtonDefaults.buttonColors(
                             backgroundColor = Color.Transparent,
                             contentColor = contentColor,
@@ -160,7 +158,7 @@ fun WelcomeScreen(
                             .clip(RoundedCornerShape(percent = 50))
                     ) {
                         Text(
-                            stringResource(id = R.string.welcome_login),
+                            stringResource(id = R.string.common_login),
                             style = typography.button,
                         )
                     }
@@ -174,7 +172,7 @@ fun WelcomeScreen(
 @Composable
 fun WelcomeScreenLight() {
     MyTheme(darkTheme = false) {
-        WelcomeScreen(navController = null)
+        WelcomeScreen(goLogin = null)
     }
 }
 
@@ -182,6 +180,6 @@ fun WelcomeScreenLight() {
 @Composable
 fun WelcomeScreenDark() {
     MyTheme(darkTheme = true) {
-        WelcomeScreen(navController = null)
+        WelcomeScreen(goLogin = null)
     }
 }

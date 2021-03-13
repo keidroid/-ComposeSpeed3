@@ -18,9 +18,14 @@
     <string name="screen_profile">Profile</string>
     <string name="screen_cart">Cart</string>
 
+    <string name="common_login">Log in</string>
+
     <string name="welcome_subtitle">Beautiful home garden solutions</string>
     <string name="welcome_create_account">Create Account</string>
-    <string name="welcome_login">Log in</string>
+
+    <string name="login_title">Log in with email</string>
+    <string name="login_mail">Email address</string>
+    <string name="login_password">Password (8+ characters)</string>
 
     <string name="dog_detail_overview_limit_date">掲載期間: %sまで</string>
     <string name="dog_detail_overview_within">里親募集中</string>
