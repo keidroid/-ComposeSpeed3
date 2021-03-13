@@ -64,9 +64,11 @@ fun WelcomeScreen(
 
     MyTheme {
         Scaffold {
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(color = colors.primary)) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = colors.primary)
+            ) {
                 Image(
                     painter = painterResource(id = bg),
                     contentDescription = null,

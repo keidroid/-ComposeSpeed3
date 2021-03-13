@@ -10,22 +10,11 @@
       the License.
       -->
     <!-- Base application theme. -->
-    <style name="Theme.ComposeSpeed" parent="Theme.MaterialComponents.DayNight">
-    </style>
-
-    <style name="Theme.ComposeSpeed.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ComposeSpeed" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="Theme.ComposeSpeed.NoActionBar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
