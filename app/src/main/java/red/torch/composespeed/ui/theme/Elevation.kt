@@ -15,25 +15,8 @@
  */
 package red.torch.composespeed.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 
-@Composable
-fun MyTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit,
-) {
-    val colors = if (darkTheme) {
-        myDarkColors
-    } else {
-        myLightColors
-    }
-    MaterialTheme(
-        colors = colors,
-        typography = myTypography,
-        shapes = myShapes,
-    ) {
-        content()
-    }
-}
+val elevationCard = 1.dp
+val elevationSnackbar = 2.dp
+val elevationNavigation = 16.dp

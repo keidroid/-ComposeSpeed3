@@ -19,42 +19,36 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 
-val teal200 = Color(0xFF03DAC5)
-val teal500 = Color(0xFF009688)
-val teal700 = Color(0xFF018786)
+val pink100 = Color(0xfffff1f1)
+val pink900 = Color(0xff3f2c2c)
 
-val red200 = Color(0xFFEF9A9A)
-val red500 = Color(0xFFF44336)
-val red700 = Color(0xFFD32F2F)
+val gray = Color(0xff232323)
 
-val PrimaryLight = teal200
-val Primary = teal500
-val PrimaryDark = teal700
+val white = Color(0xffffffff)
+val white850 = Color(0xffffffff).copy(alpha = 0.85f)
+val white150 = Color(0xffffffff).copy(alpha = 0.15f)
 
-val SecondaryLight = red200
-val Secondary = red500
-val SecondaryDark = red700
-
-val BackgroundLight = Color(0xFFF8F6F4)
-val OnBackgroundLight = Color(0xFF3C3838)
-
-val BackgroundDark = Color(0xFF080604)
-val OnBackgroundDark = Color(0xFFFCF8F8)
+val green900 = Color(0xff2d3b2d)
+val green300 = Color(0xffb8c9b8)
 
 val myDarkColors = darkColors(
-    primary = Primary,
-    primaryVariant = PrimaryDark,
-    secondary = SecondaryDark,
-    secondaryVariant = SecondaryDark,
-    background = BackgroundDark,
-    onBackground = OnBackgroundDark,
+    primary = green900,
+    secondary = green300,
+    background = gray,
+    surface = white150,
+    onPrimary = white,
+    onSecondary = gray,
+    onBackground = white,
+    onSurface = white850
 )
 
 val myLightColors = lightColors(
-    primary = Primary,
-    primaryVariant = PrimaryLight,
-    secondary = Secondary,
-    secondaryVariant = SecondaryLight,
-    background = BackgroundLight,
-    onBackground = OnBackgroundLight,
+    primary = pink100,
+    secondary = pink900,
+    background = white,
+    surface = white850,
+    onPrimary = gray,
+    onSecondary = white,
+    onBackground = gray,
+    onSurface = gray
 )

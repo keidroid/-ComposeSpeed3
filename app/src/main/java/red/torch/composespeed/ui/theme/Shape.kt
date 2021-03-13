@@ -19,14 +19,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
 import androidx.compose.ui.unit.dp
 
-val replyShapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(0.dp),
-    large = RoundedCornerShape(8.dp, 8.dp, 0.dp, 0.dp)
-)
-
 val myShapes = Shapes(
+    // snackbar, image, textfield, card
     small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(0.dp)
+    // button
+    medium = RoundedCornerShape(24.dp),
 )

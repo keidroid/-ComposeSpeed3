@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package red.torch.composespeed.ui.list
+package red.torch.composespeed.ui.home
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -31,7 +30,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,9 +41,8 @@ import red.torch.composespeed.ui.common.DogAdaptionTopAppBar
 import red.torch.composespeed.ui.common.MyNavigationBar
 import red.torch.composespeed.viewmodel.ListViewModel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun DogListScreen(
+fun HomeScreen(
     navController: NavController,
     viewModel: ListViewModel = viewModel()
 ) {
@@ -85,9 +82,6 @@ fun DogListScreen(
 
                 dogListInfo.groups.forEach { group ->
                     // Experimental
-                    stickyHeader {
-                        DogListDateHeader(group.label)
-                    }
                     group.dogSimpleInfos.forEach { dogSimpleInfo ->
                         item {
                             DogListContentsItem(dogSimpleInfo) { dogId ->

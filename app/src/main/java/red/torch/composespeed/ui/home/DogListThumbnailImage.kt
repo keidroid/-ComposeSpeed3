@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package red.torch.composespeed.ui.list
+package red.torch.composespeed.ui.home
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -25,12 +24,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.chrisbanes.accompanist.glide.GlideImage
-import red.torch.composespeed.R
 import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
@@ -54,11 +51,6 @@ fun DogListThumbnailImage(
         },
         error = {
             Box(contentAlignment = Alignment.Center) {
-                Image(
-                    painterResource(R.drawable.ic_baseline_no_photography_24),
-                    contentDescription = null,
-                    modifier = Modifier.size(errorIconSize)
-                )
             }
         }
     )

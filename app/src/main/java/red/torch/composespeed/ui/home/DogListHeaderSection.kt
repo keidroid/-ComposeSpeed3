@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package red.torch.composespeed.ui.list
+package red.torch.composespeed.ui.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -52,7 +52,7 @@ fun DogListHeaderSection(
         ) {
             Text(
                 stringResource(
-                    id = R.string.dog_list_search_result,
+                    id = R.string.welcome_login,
                     searchTarget,
                     searchResultCount
                 ),
@@ -66,19 +66,19 @@ fun DogListHeaderSection(
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                stringResource(id = R.string.dog_list_sort_created_date),
+                stringResource(id = R.string.welcome_login),
                 style = typography.body1,
                 color = colors.primary
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                stringResource(id = R.string.dog_list_sort_separator),
+                stringResource(id = R.string.welcome_login),
                 style = typography.body1,
                 color = colors.onBackground.copy(alpha = 0.25f)
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                stringResource(id = R.string.dog_list_sort_name),
+                stringResource(id = R.string.welcome_login),
                 style = typography.body1,
                 color = colors.onBackground.copy(alpha = 0.25f)
             )

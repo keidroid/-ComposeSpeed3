@@ -15,10 +15,14 @@
  */
 package red.torch.composespeed.ui.common
 
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,10 +32,20 @@ import red.torch.composespeed.ui.theme.MyTheme
 @Composable
 fun DogAdaptionTopAppBar() {
     TopAppBar(
+        navigationIcon = {
+            IconButton(
+                onClick = { },
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = null
+                )
+            }
+        },
         title = {
             Text(
                 text = stringResource(R.string.app_name),
-                style = typography.h1
+                style = typography.h4
             )
         },
         backgroundColor = colors.surface,

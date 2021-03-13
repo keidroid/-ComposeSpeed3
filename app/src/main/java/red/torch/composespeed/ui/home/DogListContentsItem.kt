@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package red.torch.composespeed.ui.list
+package red.torch.composespeed.ui.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -32,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import red.torch.composespeed.R
 import red.torch.composespeed.data.repository.DogSimpleInfo
 import red.torch.composespeed.ui.theme.MyTheme
 
@@ -78,17 +77,9 @@ fun DogListContentsItem(
                     )
 
                     if (dog.features.isNotBlank()) {
-                        DogListIconAndText(
-                            drawableResId = R.drawable.ic_baseline_pets_24,
-                            text = dog.features
-                        )
                     }
 
                     if (dog.location.isNotBlank()) {
-                        DogListIconAndText(
-                            drawableResId = R.drawable.ic_baseline_location_on_24,
-                            text = dog.location
-                        )
                     }
                 }
             }

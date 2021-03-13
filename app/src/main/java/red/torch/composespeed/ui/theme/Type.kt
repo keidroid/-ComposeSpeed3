@@ -29,49 +29,62 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import red.torch.composespeed.R
 
-private val replyFonts = FontFamily(
-    Font(R.font.worksans_regular, weight = FontWeight.Normal),
-    Font(R.font.worksans_light, weight = FontWeight.Light),
-    Font(R.font.worksans_medium, weight = FontWeight.Medium),
-    Font(R.font.worksans_semibold, weight = FontWeight.SemiBold),
-    Font(R.font.worksans_bold, weight = FontWeight.Bold),
+private val nunitoFonts = FontFamily(
+    Font(R.font.nunitosans_regular),
+    Font(R.font.nunitosans_light, weight = FontWeight.Light),
+    Font(R.font.nunitosans_semibold, weight = FontWeight.SemiBold),
+    Font(R.font.nunitosans_bold, weight = FontWeight.Bold),
 )
 
-val replyTypography = typographyFromDefaults(
-    // TopBar
+val myTypography = typographyFromDefaults(
     h1 = TextStyle(
-        fontFamily = replyFonts,
-        fontSize = 96.sp,
+        fontFamily = nunitoFonts,
         fontWeight = FontWeight.Light,
+        fontSize = 18.sp,
+        letterSpacing = 0.sp
     ),
     h2 = TextStyle(
-        fontFamily = replyFonts,
-        fontSize = 60.sp,
-        fontWeight = FontWeight.SemiBold,
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+        letterSpacing = 15.sp
     ),
-    h3 = null, // Unused
-    h4 = null, // Unused
-    h5 = null, // Unused
-    h6 = null, // Unused
+    h3 = null, // unused
+    h4 = null, // unused
+    h5 = null, // unused
+    h6 = null, // unused
     subtitle1 = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 16.sp
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+        letterSpacing = 0.sp
     ),
-    subtitle2 = null, // Unused
+    subtitle2 = null, // unused
     body1 = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 14.sp
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+        letterSpacing = 0.sp
     ),
     body2 = TextStyle(
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.Light,
+        fontSize = 12.sp,
+        letterSpacing = 0.sp
     ),
     button = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 16.sp
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        letterSpacing = 1.sp
     ),
-    caption = null, // Unused
-    overline = null // Unused
+    caption = TextStyle(
+        fontFamily = nunitoFonts,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 12.sp,
+        letterSpacing = 1.sp
+    ),
+    overline = null, // unused
 )
 
 fun typographyFromDefaults(
