@@ -16,73 +16,67 @@
 package red.torch.composespeed.ui.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.MaterialTheme.typography
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import red.torch.composespeed.R
-import red.torch.composespeed.data.gardenMocks
-import red.torch.composespeed.data.themeMocks
-import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
+import red.torch.composespeed.data.tradeInfoMocks
 import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
 fun HomeScreen() {
-
-    Scaffold(
-        bottomBar = {
-            HomeNavigationBar()
-        },
-    ) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colors.background)
-        ) {
+    Scaffold {
+        LazyColumn {
+            // Top
             item {
-                Spacer(Modifier.height(40.dp))
-            }
-            item {
-                HomeSearchField()
-            }
-            item {
-                Text(
-                    stringResource(id = R.string.home_browse_theme),
-                    style = typography.h1,
-                    modifier = Modifier
-                        .firstBaselineToTopAndBottom(32.dp, 0.dp)
-                        .padding(horizontal = 16.dp)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(16.dp)
-                ) {
-                    themeMocks.forEach {
-                        item {
-                            ThemeItem(it.first, it.second)
-                            Spacer(modifier = Modifier.width(8.dp))
-                        }
-                    }
+                MyTheme { // bug?
+                    TopSection()
                 }
             }
+
+            // Positions Title
             item {
-                GardenTitle()
+                MyTheme { // bug?
+                    Text(
+                        text = stringResource(id = R.string.home_positions),
+                        style = MaterialTheme.typography.subtitle1,
+                        color = colors.onSurface,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(color = colors.surface)
+                            .paddingFromBaseline(top = 40.dp, bottom = 24.dp)
+                    )
+                }
             }
-            gardenMocks.forEach {
+            // Positions Contents
+            tradeInfoMocks.forEach {
                 item {
-                    GardenItem(it.first, it.second, it.third)
+                    MyTheme { // bug?
+                        Column(modifier = Modifier.background(color = colors.surface)) {
+                            Divider(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(1.dp)
+                                    .padding(horizontal = 16.dp)
+                            )
+                            TradeInfoItem(info = it)
+                        }
+                    }
                 }
             }
         }

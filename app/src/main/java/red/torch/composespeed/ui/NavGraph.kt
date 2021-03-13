@@ -17,7 +17,6 @@ package red.torch.composespeed.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
@@ -25,17 +24,13 @@ import androidx.navigation.compose.rememberNavController
 import red.torch.composespeed.R
 import red.torch.composespeed.ui.home.HomeScreen
 import red.torch.composespeed.ui.login.LoginScreen
-import red.torch.composespeed.ui.theme.iconAccountCircle
-import red.torch.composespeed.ui.theme.iconFavoriteBorder
-import red.torch.composespeed.ui.theme.iconHome
-import red.torch.composespeed.ui.theme.iconShoppingCart
 import red.torch.composespeed.ui.welcome.WelcomeScreen
 
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
 
-    NavHost(navController, startDestination = "welcome") {
+    NavHost(navController, startDestination = "home") {
         composable(
             "welcome"
         ) {
@@ -58,11 +53,8 @@ fun NavGraph() {
     }
 }
 
-sealed class Screen(val route: String, @StringRes val label: Int, val icon: ImageVector) {
-    object Welcome : Screen("welcome", R.string.screen_welcome, iconHome)
-    object Login : Screen("login", R.string.screen_login, iconHome)
-    object Home : Screen("home", R.string.screen_home, iconHome)
-    object Favorites : Screen("favorites", R.string.screen_favorites, iconFavoriteBorder)
-    object Profile : Screen("profile", R.string.screen_profile, iconAccountCircle)
-    object Cart : Screen("cart", R.string.screen_cart, iconShoppingCart)
+sealed class Screen(val route: String, @StringRes val label: Int) {
+    object Welcome : Screen("welcome", R.string.screen_welcome)
+    object Login : Screen("login", R.string.screen_login)
+    object Home : Screen("home", R.string.screen_home)
 }

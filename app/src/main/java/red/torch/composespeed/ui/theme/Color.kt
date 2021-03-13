@@ -19,36 +19,33 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 
-val pink100 = Color(0xfffff1f1)
-val pink900 = Color(0xff3f2c2c)
+val yellow = Color(0xFFE3DA00)
+val purple = Color(0xFF322049)
+val gray900 = Color(0xFF232323)
+val gray700 = Color(0xFF2D2D2D)
+val white = Color(0xFFFFFFFF)
 
-val gray = Color(0xff232323)
-
-val white = Color(0xffffffff)
-val white850 = Color(0xffffffff).copy(alpha = 0.85f)
-val white150 = Color(0xffffffff).copy(alpha = 0.15f)
-
-val green900 = Color(0xff2d3b2d)
-val green300 = Color(0xffb8c9b8)
-
-val myDarkColors = darkColors(
-    primary = green900,
-    secondary = green300,
-    background = gray,
-    surface = white150,
-    onPrimary = white,
-    onSecondary = gray,
-    onBackground = white,
-    onSurface = white850
-)
+val green = Color(0xFF39A844)
+val red = Color(0xFFD93C19)
 
 val myLightColors = lightColors(
-    primary = pink100,
-    secondary = pink900,
-    background = white,
-    surface = white850,
-    onPrimary = gray,
-    onSecondary = white,
-    onBackground = gray,
-    onSurface = gray
+    primary = yellow,
+    secondary = green, // Custom1
+    background = purple,
+    surface = white,
+    onPrimary = gray900,
+    onSecondary = red, // Custom2
+    onBackground = white,
+    onSurface = gray900
+)
+
+val myDarkColors = darkColors(
+    primary = yellow,
+    secondary = green, // Custom1
+    background = gray900,
+    surface = gray700,
+    onPrimary = gray900,
+    onSecondary = red, // Custom2
+    onBackground = white,
+    onSurface = white
 )

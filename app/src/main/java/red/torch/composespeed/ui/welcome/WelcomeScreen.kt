@@ -16,7 +16,6 @@
 package red.torch.composespeed.ui.welcome
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,132 +34,81 @@ import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import red.torch.composespeed.R
-import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
 import red.torch.composespeed.ui.theme.MyTheme
-import red.torch.composespeed.ui.theme.pink900
-import red.torch.composespeed.ui.theme.white
 
 @Composable
 fun WelcomeScreen(
     goLogin: (() -> Unit)?,
 ) {
-    val bg = if (colors.isLight) {
-        R.drawable.ic_light_welcome_bg
-    } else {
-        R.drawable.ic_dark_welcome_bg
-    }
-
     Scaffold {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = colors.primary)
         ) {
             Image(
-                painter = painterResource(id = bg),
+                painter = painterResource(id = R.drawable.ic_welcome_bg),
                 contentDescription = null,
             )
 
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Bottom,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp)
             ) {
-                Spacer(modifier = Modifier.height(72.dp))
-
-                Row(
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Spacer(modifier = Modifier.width(88.dp))
-
-                    val illos = if (colors.isLight) {
-                        R.drawable.ic_light_welcome_illos
-                    } else {
-                        R.drawable.ic_dark_welcome_illos
+                Row {
+                    Button(
+                        onClick = { /* nothing to do */ },
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = colors.primary,
+                            contentColor = colors.onPrimary
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                            .height(48.dp)
+                            .clip(RoundedCornerShape(percent = 50))
+                    ) {
+                        Text(
+                            stringResource(id = R.string.welcome_get_started),
+                            style = typography.button,
+                        )
                     }
-                    Image(
-                        painter = painterResource(id = illos),
-                        contentDescription = null,
-                        alignment = Alignment.TopStart,
-                        contentScale = ContentScale.Crop,
-                    )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    Button(
+                        onClick = { goLogin?.invoke() },
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent,
+                            contentColor = colors.primary,
+                        ),
+                        elevation = ButtonDefaults.elevation(
+                            defaultElevation = 0.dp,
+                            pressedElevation = 0.dp,
+                            disabledElevation = 0.dp,
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                            .height(48.dp)
+                            .clip(RoundedCornerShape(percent = 50))
+                    ) {
+                        Text(
+                            stringResource(id = R.string.common_login),
+                            style = typography.button,
+                        )
+                    }
                 }
-
-                Spacer(modifier = Modifier.height(48.dp))
-
-                val logo = if (colors.isLight) {
-                    R.drawable.ic_light_logo
-                } else {
-                    R.drawable.ic_dark_logo
-                }
-                Image(
-                    painter = painterResource(id = logo),
-                    contentDescription = null,
-                )
-
-                Text(
-                    stringResource(id = R.string.welcome_subtitle),
-                    style = typography.subtitle1,
-                    modifier = Modifier
-//                            .firstBaselineToTopAndBottom(32.dp, 40.dp)
-                        .firstBaselineToTopAndBottom(24.dp, 40.dp) // 32? 24?
-                )
-
-                Button(
-                    onClick = { /* nothing to do */ },
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = colors.secondary,
-                        contentColor = colors.onSecondary
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .height(48.dp)
-                        .clip(RoundedCornerShape(percent = 50))
-                ) {
-                    Text(
-                        stringResource(id = R.string.welcome_create_account),
-                        style = typography.button,
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                val contentColor = if (colors.isLight) {
-                    pink900
-                } else {
-                    white
-                }
-                Button(
-                    onClick = { goLogin?.invoke() },
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.Transparent,
-                        contentColor = contentColor,
-                    ),
-                    elevation = ButtonDefaults.elevation(
-                        defaultElevation = 0.dp,
-                        pressedElevation = 0.dp,
-                        disabledElevation = 0.dp,
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .height(48.dp)
-                        .clip(RoundedCornerShape(percent = 50))
-                ) {
-                    Text(
-                        stringResource(id = R.string.common_login),
-                        style = typography.button,
-                    )
-                }
+                Spacer(modifier = Modifier.height(32.dp))
             }
         }
     }

@@ -29,61 +29,57 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import red.torch.composespeed.R
 
-private val nunitoFonts = FontFamily(
-    Font(R.font.nunitosans_regular),
-    Font(R.font.nunitosans_light, weight = FontWeight.Light),
-    Font(R.font.nunitosans_semibold, weight = FontWeight.SemiBold),
-    Font(R.font.nunitosans_bold, weight = FontWeight.Bold),
+private val montserratFonts = FontFamily(
+    Font(R.font.montserrat_light, weight = FontWeight.Light),
+    Font(R.font.montserrat_medium, weight = FontWeight.Medium),
+    Font(R.font.montserrat_semibold, weight = FontWeight.SemiBold),
+    Font(R.font.montserrat_bold, weight = FontWeight.Bold),
+    Font(R.font.montserrat_extrabold, weight = FontWeight.ExtraBold),
 )
 
 val myTypography = typographyFromDefaults(
     h1 = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.Bold,
-        fontSize = 18.sp,
-        letterSpacing = 0.sp
+        fontFamily = montserratFonts,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 40.sp,
+        letterSpacing = 1.25.sp
     ),
     h2 = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.Bold,
-        fontSize = 14.sp,
-        letterSpacing = 0.15.sp
+        fontFamily = montserratFonts,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 36.sp,
+        letterSpacing = 0.sp
     ),
-    h3 = null, // unused
+    h3 = TextStyle(
+        fontFamily = montserratFonts,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 13.sp,
+        letterSpacing = 0.sp
+    ),
     h4 = null, // unused
     h5 = null, // unused
     h6 = null, // unused
     subtitle1 = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.Light,
+        fontFamily = montserratFonts,
+        fontWeight = FontWeight.Medium,
         fontSize = 14.sp,
         letterSpacing = 0.sp
     ),
     subtitle2 = null, // unused
     body1 = TextStyle(
-        fontFamily = nunitoFonts,
+        fontFamily = montserratFonts,
         fontWeight = FontWeight.Light,
-        fontSize = 14.sp,
+        fontSize = 13.sp,
         letterSpacing = 0.sp
     ),
-    body2 = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.Light,
-        fontSize = 12.sp,
-        letterSpacing = 0.sp
-    ),
+    body2 = null, // unused
     button = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 14.sp,
-        letterSpacing = 1.sp
-    ),
-    caption = TextStyle(
-        fontFamily = nunitoFonts,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 12.sp,
-        letterSpacing = 1.sp
-    ),
+        fontFamily = montserratFonts,
+        fontWeight = FontWeight.Bold,
+        fontSize = 13.sp,
+        letterSpacing = 1.25.sp
+    ), // button is caps
+    caption = null, // unused
     overline = null, // unused
 )
 
@@ -128,16 +124,16 @@ fun TypographyPreview() {
             Column {
                 Text("H1 Headline", style = MaterialTheme.typography.h1)
                 Text("H2 Headline", style = MaterialTheme.typography.h2)
-//                Text("H3 Headline", style = MaterialTheme.typography.h3)
+                Text("H3 Headline", style = MaterialTheme.typography.h3)
 //                Text("H4 Headline", style = MaterialTheme.typography.h4)
 //                Text("H5 Headline", style = MaterialTheme.typography.h5)
 //                Text("H6 Headline", style = MaterialTheme.typography.h6)
                 Text("Subtitle 1", style = MaterialTheme.typography.subtitle1)
 //                Text("Subtitle 2", style = MaterialTheme.typography.subtitle2)
                 Text("Body 1", style = MaterialTheme.typography.body1)
-                Text("Body 2", style = MaterialTheme.typography.body2)
+//                Text("Body 2", style = MaterialTheme.typography.body2)
                 Text("Button", style = MaterialTheme.typography.button)
-                Text("Caption", style = MaterialTheme.typography.caption)
+//                Text("Caption", style = MaterialTheme.typography.caption)
 //                Text("OVERLINE", style = MaterialTheme.typography.overline)
             }
         }

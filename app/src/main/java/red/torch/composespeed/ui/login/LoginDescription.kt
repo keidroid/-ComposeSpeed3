@@ -16,6 +16,7 @@
 package red.torch.composespeed.ui.login
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -23,13 +24,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
 import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
 fun LoginDescription() {
     // stringResource(): Space does not work..
-    Row(modifier = Modifier.firstBaselineToTopAndBottom(24.dp, 0.dp)) {
+    Row(modifier = Modifier.paddingFromBaseline(24.dp, 0.dp)) {
         Text(
             "By clicking below, you agree to our",
             style = MaterialTheme.typography.body2,
@@ -44,7 +44,7 @@ fun LoginDescription() {
             style = MaterialTheme.typography.body2,
         )
     }
-    Row(modifier = Modifier.firstBaselineToTopAndBottom(16.dp, 16.dp)) {
+    Row(modifier = Modifier.paddingFromBaseline(16.dp, 16.dp)) {
         Text(
             "to our ",
             style = MaterialTheme.typography.body2,

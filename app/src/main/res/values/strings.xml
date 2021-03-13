@@ -9,26 +9,27 @@
       or implied. See the License for the specific language governing permissions and limitations under
       the License.
       -->
-    <string name="app_name">Compose Speed</string>
+    <string name="app_name">WeTrade</string>
 
     <string name="screen_welcome">Welcome</string>
     <string name="screen_login">Login</string>
     <string name="screen_home">Home</string>
-    <string name="screen_favorites">Favorites</string>
-    <string name="screen_profile">Profile</string>
-    <string name="screen_cart">Cart</string>
+
 
     <string name="common_login">Log in</string>
 
-    <string name="welcome_subtitle">Beautiful home garden solutions</string>
-    <string name="welcome_create_account">Create Account</string>
+    <string name="welcome_get_started">Get Started</string>
 
-    <string name="login_title">Log in with email</string>
+    <string name="login_title">Welcome</string>
+    <string name="login_title2">back</string>
     <string name="login_mail">Email address</string>
-    <string name="login_password">Password (8+ characters)</string>
+    <string name="login_password">Password</string>
 
-    <string name="home_search">Search</string>
-    <string name="home_browse_theme">Browse themes</string>
-    <string name="home_design_your_home_garden">Design your home garden</string>
+    <string name="home_account">ACCOUNT</string>
+    <string name="home_watch_list">WATCHLIST</string>
+    <string name="home_profile">PROFILE</string>
+    <string name="home_balance">Balance</string>
+    <string name="home_transact">TRANSACT</string>
+    <string name="home_positions">Positions</string>
 
 </resources>

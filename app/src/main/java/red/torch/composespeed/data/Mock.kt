@@ -17,19 +17,15 @@ package red.torch.composespeed.data
 
 import red.torch.composespeed.R
 
-val themeMocks = listOf(
-    Pair(R.drawable.desert_chic, "Desert Chic"),
-    Pair(R.drawable.tiny_terrariums, "Tiny Terrariums"),
-    Pair(R.drawable.jungle_vibes, "Jungle Vibes"),
-    Pair(R.drawable.easy_care, "Easy care"),
-    Pair(R.drawable.statements, "Statements")
-)
-
-val gardenMocks = listOf(
-    Triple(R.drawable.monstera, "Monstera", true),
-    Triple(R.drawable.tiny_terrariums, "Tiny terrariums", false),
-    Triple(R.drawable.peace_lily, "Peace lily", false),
-    Triple(R.drawable.fiddle_leaf_tree, "Fiddle leaf tree", false),
-    Triple(R.drawable.snake_plant, "Snake plant", false),
-    Triple(R.drawable.pothos, "Pothos", false)
+val tradeInfoMocks = listOf(
+    TradeInfo("\$7,918", -0.54f, "ALK", "Alaska Air Group, Inc.", R.drawable.ic_home_alk),
+    TradeInfo("\$1,293", 4.18f, "BA", "Boeing Co.", R.drawable.ic_home_ba),
+    TradeInfo("\$893.50", -0.54f, "DAL", "Delta Airlines Inc.", R.drawable.ic_home_dal),
+    TradeInfo("\$12,301", 2.51f, "EXPE", "Expedia Group Inc.", R.drawable.ic_home_exp),
+    TradeInfo("\$12,301", 1.38f, "EADSY", "Airbus SE", R.drawable.ic_home_eadsy),
+    TradeInfo("\$8,521", 1.56f, "JBLU", "Jetblue Airways Corp.", R.drawable.ic_home_jblu),
+    TradeInfo("\$521", 2.75f, "MAR", "Marriott International Inc.", R.drawable.ic_home_mar),
+    TradeInfo("\$5,481", 0.14f, "CCL", "Carnival Corp", R.drawable.ic_home_ccl),
+    TradeInfo("\$9,184", 1.69f, "RCL", "Royal Caribbean Cruises", R.drawable.ic_home_rcl),
+    TradeInfo("\$654", 3.23f, "TRVL", "Travelocity Inc.", R.drawable.ic_home_trvl),
 )

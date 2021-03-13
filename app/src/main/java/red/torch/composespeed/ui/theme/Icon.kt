@@ -16,18 +16,10 @@
 package red.torch.composespeed.ui.theme
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Done
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.FilterList
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.MailOutline
+import androidx.compose.material.icons.filled.Password
 
-val iconAccountCircle = Icons.Filled.AccountCircle
-val iconSearch = Icons.Filled.Search
-val iconFavoriteBorder = Icons.Filled.FavoriteBorder
-val iconHome = Icons.Filled.Home
-val iconShoppingCart = Icons.Filled.ShoppingCart
-val iconFilterList = Icons.Filled.FilterList
-val iconDone = Icons.Filled.Done
+val iconMailOutline = Icons.Filled.MailOutline
+val iconPassword = Icons.Filled.Password
+val iconExpandMore = Icons.Filled.ExpandMore

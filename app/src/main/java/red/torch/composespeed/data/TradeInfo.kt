@@ -13,15 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package red.torch.composespeed.ui.theme
+package red.torch.composespeed.data
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+import androidx.annotation.DrawableRes
 
-val myShapes = Shapes(
-    // TextField
-    small = RoundedCornerShape(4.dp),
-    // Button, Chip
-    large = RoundedCornerShape(48.dp),
+data class TradeInfo(
+    val value1: String,
+    val value2: Float,
+    val value3: String,
+    val value4: String,
+    @DrawableRes val value5: Int,
 )

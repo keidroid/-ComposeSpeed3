@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -35,7 +36,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import red.torch.composespeed.R
-import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
 import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
@@ -52,7 +52,7 @@ fun LoginScreen(
                 style = typography.h1,
                 color = colors.onBackground,
                 modifier = Modifier
-                    .firstBaselineToTopAndBottom(184.dp, 16.dp) // 16?
+                    .paddingFromBaseline(184.dp, 16.dp) // 16?
             )
 
             LoginTextField(placeholderStringId = R.string.login_mail)

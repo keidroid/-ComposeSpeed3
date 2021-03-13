@@ -17,6 +17,4 @@ package red.torch.composespeed.ui.theme
 
 import androidx.compose.ui.unit.dp
 
-val elevationCard = 1.dp
-val elevationSnackbar = 2.dp
-val elevationNavigation = 16.dp
+val elevationButton = 0.dp
