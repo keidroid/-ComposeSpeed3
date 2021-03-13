@@ -33,18 +33,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import red.torch.composespeed.R
+import red.torch.composespeed.data.gardenMocks
+import red.torch.composespeed.data.themeMocks
 import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
 import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
 fun HomeScreen() {
-    val navController = rememberNavController()
 
     Scaffold(
         bottomBar = {
-            HomeNavigationBar(navController)
+            HomeNavigationBar()
         },
     ) {
         LazyColumn(
@@ -69,14 +69,7 @@ fun HomeScreen() {
                 LazyRow(
                     contentPadding = PaddingValues(16.dp)
                 ) {
-                    val themes = listOf(
-                        Pair(R.drawable.desert_chic, "Desert Chic"),
-                        Pair(R.drawable.tiny_terrariums, "Tiny Terrariums"),
-                        Pair(R.drawable.jungle_vibes, "Jungle Vibes"),
-                        Pair(R.drawable.easy_care, "Easy care"),
-                        Pair(R.drawable.statements, "Statements")
-                    )
-                    themes.forEach {
+                    themeMocks.forEach {
                         item {
                             ThemeItem(it.first, it.second)
                             Spacer(modifier = Modifier.width(8.dp))
@@ -87,20 +80,9 @@ fun HomeScreen() {
             item {
                 GardenTitle()
             }
-
-            val gardens = listOf(
-                Pair(R.drawable.monstera, "Monstera"),
-                Pair(R.drawable.tiny_terrariums, "Tiny terrariums"),
-                Pair(R.drawable.peace_lily, "Peace lily"),
-                Pair(R.drawable.fiddle_leaf_tree, "Fiddle leaf tree"),
-                Pair(R.drawable.snake_plant, "Snake plant"),
-                Pair(R.drawable.pothos, "Pothos")
-
-            )
-            gardens.forEach {
+            gardenMocks.forEach {
                 item {
-                    ThemeItem(it.first, it.second)
-                    Spacer(modifier = Modifier.width(8.dp))
+                    GardenItem(it.first, it.second, it.third)
                 }
             }
         }

@@ -37,7 +37,7 @@ fun LoginTextField(@StringRes placeholderStringId: Int) {
                 style = MaterialTheme.typography.body1,
             )
         },
-        onValueChange = { /*TODO*/ },
+        onValueChange = { /* nothing to do*/ },
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)

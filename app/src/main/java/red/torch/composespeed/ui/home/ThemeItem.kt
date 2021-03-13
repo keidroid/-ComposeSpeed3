@@ -89,7 +89,7 @@ fun ThemeItemDarkPreview() {
     }
 }
 
-@Preview("Light Theme")
+@Preview
 @Composable
 fun ThemeItemLightPreview() {
     MyTheme(darkTheme = false) {

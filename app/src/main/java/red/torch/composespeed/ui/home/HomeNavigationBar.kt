@@ -20,24 +20,29 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.compose.KEY_ROUTE
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import red.torch.composespeed.ui.Screen
+import red.torch.composespeed.ui.theme.MyTheme
 import red.torch.composespeed.ui.theme.elevationNavigation
 
 @Composable
-fun HomeNavigationBar(navController: NavController) {
+fun HomeNavigationBar() {
     BottomNavigation(
+        backgroundColor = colors.primary,
         elevation = elevationNavigation,
         modifier = Modifier.height(56.dp)
     ) {
+        val navController = rememberNavController()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
         val items = listOf(
@@ -63,5 +68,21 @@ fun HomeNavigationBar(navController: NavController) {
                 }
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun HomeNavigationBarDarkPreview() {
+    MyTheme(darkTheme = true) {
+        HomeNavigationBar()
+    }
+}
+
+@Preview
+@Composable
+fun HomeNavigationBarLightPreview() {
+    MyTheme(darkTheme = false) {
+        HomeNavigationBar()
     }
 }

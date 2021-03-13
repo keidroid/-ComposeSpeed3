@@ -21,8 +21,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
+import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
 fun LoginDescription() {
@@ -52,5 +54,21 @@ fun LoginDescription() {
             style = MaterialTheme.typography.body2,
             textDecoration = TextDecoration.Underline,
         )
+    }
+}
+
+@Preview
+@Composable
+fun LoginDescriptionDarkPreview() {
+    MyTheme(darkTheme = true) {
+        LoginDescription()
+    }
+}
+
+@Preview
+@Composable
+fun LoginDescriptionLightPreview() {
+    MyTheme(darkTheme = false) {
+        LoginDescription()
     }
 }
