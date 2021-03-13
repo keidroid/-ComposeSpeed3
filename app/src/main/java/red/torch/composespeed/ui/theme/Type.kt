@@ -39,7 +39,7 @@ private val nunitoFonts = FontFamily(
 val myTypography = typographyFromDefaults(
     h1 = TextStyle(
         fontFamily = nunitoFonts,
-        fontWeight = FontWeight.Light,
+        fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
         letterSpacing = 0.sp
     ),
@@ -47,7 +47,7 @@ val myTypography = typographyFromDefaults(
         fontFamily = nunitoFonts,
         fontWeight = FontWeight.Bold,
         fontSize = 14.sp,
-        letterSpacing = 15.sp
+        letterSpacing = 0.15.sp
     ),
     h3 = null, // unused
     h4 = null, // unused
@@ -128,17 +128,17 @@ fun TypographyPreview() {
             Column {
                 Text("H1 Headline", style = MaterialTheme.typography.h1)
                 Text("H2 Headline", style = MaterialTheme.typography.h2)
-                Text("H3 Headline", style = MaterialTheme.typography.h3)
-                Text("H4 Headline", style = MaterialTheme.typography.h4)
-                Text("H5 Headline", style = MaterialTheme.typography.h5)
-                Text("H6 Headline", style = MaterialTheme.typography.h6)
+//                Text("H3 Headline", style = MaterialTheme.typography.h3)
+//                Text("H4 Headline", style = MaterialTheme.typography.h4)
+//                Text("H5 Headline", style = MaterialTheme.typography.h5)
+//                Text("H6 Headline", style = MaterialTheme.typography.h6)
                 Text("Subtitle 1", style = MaterialTheme.typography.subtitle1)
-                Text("Subtitle 2", style = MaterialTheme.typography.subtitle2)
+//                Text("Subtitle 2", style = MaterialTheme.typography.subtitle2)
                 Text("Body 1", style = MaterialTheme.typography.body1)
                 Text("Body 2", style = MaterialTheme.typography.body2)
                 Text("Button", style = MaterialTheme.typography.button)
                 Text("Caption", style = MaterialTheme.typography.caption)
-                Text("OVERLINE", style = MaterialTheme.typography.overline)
+//                Text("OVERLINE", style = MaterialTheme.typography.overline)
             }
         }
     }

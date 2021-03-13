@@ -18,26 +18,21 @@ package red.torch.composespeed.ui
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import red.torch.composespeed.R
+import red.torch.composespeed.ui.home.HomeScreen
 import red.torch.composespeed.ui.login.LoginScreen
 import red.torch.composespeed.ui.theme.iconAccountCircle
 import red.torch.composespeed.ui.theme.iconFavoriteBorder
 import red.torch.composespeed.ui.theme.iconHome
 import red.torch.composespeed.ui.theme.iconShoppingCart
 import red.torch.composespeed.ui.welcome.WelcomeScreen
-import red.torch.composespeed.viewmodel.DetailViewModel
-import red.torch.composespeed.viewmodel.ListViewModel
 
 @Composable
-fun NavGraph(
-    listViewModel: ListViewModel = viewModel(),
-    detailViewModel: DetailViewModel = viewModel()
-) {
+fun NavGraph() {
     val navController = rememberNavController()
 
     NavHost(navController, startDestination = "welcome") {
@@ -58,7 +53,7 @@ fun NavGraph(
         composable(
             "home",
         ) {
-//            DogDetailScreen(navController, 1, detailViewModel)
+            HomeScreen()
         }
     }
 }

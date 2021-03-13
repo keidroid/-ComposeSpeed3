@@ -27,23 +27,8 @@
     <string name="login_mail">Email address</string>
     <string name="login_password">Password (8+ characters)</string>
 
-    <string name="dog_detail_overview_limit_date">掲載期間: %sまで</string>
-    <string name="dog_detail_overview_within">里親募集中</string>
-
-    <string name="dog_detail_basic_info_title">基本情報</string>
-    <string name="dog_detail_basic_info_location">現在所在地</string>
-    <string name="dog_detail_basic_info_type">種類</string>
-    <string name="dog_detail_basic_info_age">年齢</string>
-    <string name="dog_detail_basic_info_gender">性別</string>
-    <string name="dog_detail_basic_info_size">サイズ</string>
-    <string name="dog_detail_basic_info_vaccine">ワクチン</string>
-
-    <string name="dog_detail_contributor_info_title">投稿者情報</string>
-    <string name="dog_detail_basic_info_reason">募集理由</string>
-    <string name="dog_detail_basic_info_personality">性格・健康状態</string>
-    <string name="dog_detail_basic_info_recommend">推薦文</string>
-
-    <string name="dog_detail_contributor_info_id">投稿者ID: %d</string>
-    <string name="dog_detail_inquiry_button">里親を申し出る</string>
+    <string name="home_search">Search</string>
+    <string name="home_browse_theme">Browse themes</string>
+    <string name="home_design_your_home_garden">Design your home garden</string>
 
 </resources>

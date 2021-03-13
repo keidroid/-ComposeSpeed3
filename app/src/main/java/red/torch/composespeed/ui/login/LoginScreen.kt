@@ -42,44 +42,42 @@ import red.torch.composespeed.ui.theme.MyTheme
 fun LoginScreen(
     goHome: (() -> Unit)?,
 ) {
-    MyTheme {
-        Scaffold {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(horizontal = 16.dp)
+    Scaffold {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(horizontal = 16.dp)
+        ) {
+            Text(
+                stringResource(id = R.string.login_title),
+                style = typography.h1,
+                color = colors.onBackground,
+                modifier = Modifier
+                    .firstBaselineToTopAndBottom(184.dp, 16.dp) // 16?
+            )
+
+            LoginTextField(placeholderStringId = R.string.login_mail)
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            LoginTextField(placeholderStringId = R.string.login_password)
+
+            LoginDescription()
+
+            Button(
+                onClick = { goHome?.invoke() },
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = colors.secondary,
+                    contentColor = colors.onSecondary
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+                    .clip(RoundedCornerShape(percent = 50))
             ) {
                 Text(
-                    stringResource(id = R.string.login_title),
-                    style = typography.h1,
-                    color = colors.onBackground,
-                    modifier = Modifier
-                        .firstBaselineToTopAndBottom(184.dp, 16.dp) // 16?
+                    stringResource(id = R.string.common_login),
+                    style = typography.button,
                 )
-
-                LoginTextField(placeholderStringId = R.string.login_mail)
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                LoginTextField(placeholderStringId = R.string.login_password)
-
-                LoginDescription()
-
-                Button(
-                    onClick = { goHome?.invoke() },
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = colors.secondary,
-                        contentColor = colors.onSecondary
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp)
-                        .clip(RoundedCornerShape(percent = 50))
-                ) {
-                    Text(
-                        stringResource(id = R.string.common_login),
-                        style = typography.button,
-                    )
-                }
             }
         }
     }

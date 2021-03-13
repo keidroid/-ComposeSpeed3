@@ -16,25 +16,20 @@
 package red.torch.composespeed.ui.login
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.MaterialTheme.colors
-import androidx.compose.material.MaterialTheme.shapes
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun LoginTextField(@StringRes placeholderStringId: Int) {
 
-    TextField(
+    OutlinedTextField(
         value = "",
         placeholder = {
             Text(
@@ -43,19 +38,8 @@ fun LoginTextField(@StringRes placeholderStringId: Int) {
             )
         },
         onValueChange = { /*TODO*/ },
-        shape = shapes.small,
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = Color.Transparent,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent
-        ),
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)
-            .border(
-                width = 1.dp,
-                color = colors.onBackground.copy(alpha = 0.25f),
-                shape = shapes.small
-            )
     )
 }

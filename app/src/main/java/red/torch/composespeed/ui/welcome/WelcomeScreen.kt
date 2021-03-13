@@ -60,108 +60,106 @@ fun WelcomeScreen(
         R.drawable.ic_dark_welcome_bg
     }
 
-    MyTheme {
-        Scaffold {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = colors.primary)
+    Scaffold {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = colors.primary)
+        ) {
+            Image(
+                painter = painterResource(id = bg),
+                contentDescription = null,
+            )
+
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                Spacer(modifier = Modifier.height(72.dp))
+
+                Row(
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Spacer(modifier = Modifier.width(88.dp))
+
+                    val illos = if (colors.isLight) {
+                        R.drawable.ic_light_welcome_illos
+                    } else {
+                        R.drawable.ic_dark_welcome_illos
+                    }
+                    Image(
+                        painter = painterResource(id = illos),
+                        contentDescription = null,
+                        alignment = Alignment.TopStart,
+                        contentScale = ContentScale.Crop,
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(48.dp))
+
+                val logo = if (colors.isLight) {
+                    R.drawable.ic_light_logo
+                } else {
+                    R.drawable.ic_dark_logo
+                }
                 Image(
-                    painter = painterResource(id = bg),
+                    painter = painterResource(id = logo),
                     contentDescription = null,
                 )
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Spacer(modifier = Modifier.height(72.dp))
-
-                    Row(
-                        horizontalArrangement = Arrangement.Start
-                    ) {
-                        Spacer(modifier = Modifier.width(88.dp))
-
-                        val illos = if (colors.isLight) {
-                            R.drawable.ic_light_welcome_illos
-                        } else {
-                            R.drawable.ic_dark_welcome_illos
-                        }
-                        Image(
-                            painter = painterResource(id = illos),
-                            contentDescription = null,
-                            alignment = Alignment.TopStart,
-                            contentScale = ContentScale.Crop,
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(48.dp))
-
-                    val logo = if (colors.isLight) {
-                        R.drawable.ic_light_logo
-                    } else {
-                        R.drawable.ic_dark_logo
-                    }
-                    Image(
-                        painter = painterResource(id = logo),
-                        contentDescription = null,
-                    )
-
-                    Text(
-                        stringResource(id = R.string.welcome_subtitle),
-                        style = typography.subtitle1,
-                        modifier = Modifier
+                Text(
+                    stringResource(id = R.string.welcome_subtitle),
+                    style = typography.subtitle1,
+                    modifier = Modifier
 //                            .firstBaselineToTopAndBottom(32.dp, 40.dp)
-                            .firstBaselineToTopAndBottom(24.dp, 40.dp) // 32? 24?
+                        .firstBaselineToTopAndBottom(24.dp, 40.dp) // 32? 24?
+                )
+
+                Button(
+                    onClick = { /* nothing to do */ },
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = colors.secondary,
+                        contentColor = colors.onSecondary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .height(48.dp)
+                        .clip(RoundedCornerShape(percent = 50))
+                ) {
+                    Text(
+                        stringResource(id = R.string.welcome_create_account),
+                        style = typography.button,
                     )
+                }
 
-                    Button(
-                        onClick = { /* nothing to do */ },
-                        colors = ButtonDefaults.buttonColors(
-                            backgroundColor = colors.secondary,
-                            contentColor = colors.onSecondary
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .height(48.dp)
-                            .clip(RoundedCornerShape(percent = 50))
-                    ) {
-                        Text(
-                            stringResource(id = R.string.welcome_create_account),
-                            style = typography.button,
-                        )
-                    }
+                Spacer(modifier = Modifier.height(8.dp))
 
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    val contentColor = if (colors.isLight) {
-                        pink900
-                    } else {
-                        white
-                    }
-                    Button(
-                        onClick = { goLogin?.invoke() },
-                        colors = ButtonDefaults.buttonColors(
-                            backgroundColor = Color.Transparent,
-                            contentColor = contentColor,
-                        ),
-                        elevation = ButtonDefaults.elevation(
-                            defaultElevation = 0.dp,
-                            pressedElevation = 0.dp,
-                            disabledElevation = 0.dp,
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .height(48.dp)
-                            .clip(RoundedCornerShape(percent = 50))
-                    ) {
-                        Text(
-                            stringResource(id = R.string.common_login),
-                            style = typography.button,
-                        )
-                    }
+                val contentColor = if (colors.isLight) {
+                    pink900
+                } else {
+                    white
+                }
+                Button(
+                    onClick = { goLogin?.invoke() },
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.Transparent,
+                        contentColor = contentColor,
+                    ),
+                    elevation = ButtonDefaults.elevation(
+                        defaultElevation = 0.dp,
+                        pressedElevation = 0.dp,
+                        disabledElevation = 0.dp,
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .height(48.dp)
+                        .clip(RoundedCornerShape(percent = 50))
+                ) {
+                    Text(
+                        stringResource(id = R.string.common_login),
+                        style = typography.button,
+                    )
                 }
             }
         }

@@ -16,85 +16,91 @@
 package red.torch.composespeed.ui.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.FabPosition
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
-import red.torch.composespeed.ui.common.DogAdaptionTopAppBar
-import red.torch.composespeed.ui.common.MyNavigationBar
-import red.torch.composespeed.viewmodel.ListViewModel
+import androidx.navigation.compose.rememberNavController
+import red.torch.composespeed.R
+import red.torch.composespeed.ui.common.firstBaselineToTopAndBottom
+import red.torch.composespeed.ui.theme.MyTheme
 
 @Composable
-fun HomeScreen(
-    navController: NavController,
-    viewModel: ListViewModel = viewModel()
-) {
-    val dogListInfoState = viewModel.dogListInfo.observeAsState(null)
-    viewModel.fetchDogList()
+fun HomeScreen() {
+    val navController = rememberNavController()
 
     Scaffold(
-        topBar = { DogAdaptionTopAppBar() },
-        drawerContent = { DogAdaptionTopAppBar() },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = { /*TODO*/ },
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = null
-                )
-            }
-        },
         bottomBar = {
-            MyNavigationBar(navController)
+            HomeNavigationBar(navController)
         },
-        isFloatingActionButtonDocked = true,
-        floatingActionButtonPosition = FabPosition.Center,
     ) {
-        dogListInfoState.value?.also { dogListInfo ->
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colors.background)
-            ) {
-
-                item {
-                    Spacer(Modifier.height(4.dp))
-                    DogListHeaderSection(dogListInfo.target, dogListInfo.totalCount)
-                }
-
-                dogListInfo.groups.forEach { group ->
-                    // Experimental
-                    group.dogSimpleInfos.forEach { dogSimpleInfo ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colors.background)
+        ) {
+            item {
+                Spacer(Modifier.height(40.dp))
+            }
+            item {
+                HomeSearchField()
+            }
+            item {
+                Text(
+                    stringResource(id = R.string.home_browse_theme),
+                    style = typography.h1,
+                    modifier = Modifier
+                        .firstBaselineToTopAndBottom(32.dp, 0.dp)
+                        .padding(horizontal = 16.dp)
+                )
+                LazyRow(
+                    contentPadding = PaddingValues(16.dp)
+                ) {
+                    val themes = listOf(
+                        Pair(R.drawable.desert_chic, "Desert Chic"),
+                        Pair(R.drawable.tiny_terrariums, "Tiny Terrariums"),
+                        Pair(R.drawable.jungle_vibes, "Jungle Vibes")
+                    )
+                    themes.forEach {
                         item {
-                            DogListContentsItem(dogSimpleInfo) { dogId ->
-                                navController.navigate("detail/$dogId")
-                            }
+                            ThemeItem(it.first, it.second)
+                            Spacer(modifier = Modifier.width(8.dp))
                         }
                     }
                 }
             }
-        } ?: run {
-            Box(modifier = Modifier.fillMaxSize()) {
-                CircularProgressIndicator(Modifier.align(Alignment.Center))
+            item {
+                GardenTitle()
             }
         }
+    }
+}
+
+@Preview(widthDp = 360, heightDp = 640)
+@Composable
+fun WelcomeScreenLight() {
+    MyTheme(darkTheme = false) {
+        HomeScreen()
+    }
+}
+
+@Preview(widthDp = 360, heightDp = 640)
+@Composable
+fun WelcomeScreenDark() {
+    MyTheme(darkTheme = true) {
+        HomeScreen()
     }
 }
